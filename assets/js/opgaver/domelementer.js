@@ -8,8 +8,20 @@ Du skal finde elementet med id="yellowFigure" og console logge det.
 */
 
 // din kode her
+var redFigureElement = document.getElementById("redFigure");
 
+if (redFigureElement) {
 
+    console.log(redFigureElement);
+} 
+//////
+
+ var yellowFigureElement = document.getElementById("yellowFigure");
+
+ if (yellowFigureElement) {
+
+     console.log(yellowFigureElement);
+ } 
 /* opgave 1.2
 Du skal ændre baggrundsfarve på de to elementer du har fundet i opgave 1.1
 farven på elementerne skal være blå. brug evt. elelement.style.backgroundColor
@@ -17,8 +29,17 @@ farven på elementerne skal være blå. brug evt. elelement.style.backgroundColo
 
 
 // din kode her
+var redFigureElement = document.getElementById("redFigure");
 
+if (redFigureElement) {
+    redFigureElement.style.backgroundColor = "red";
+}
+//////
+var yellowFigureElement = document.getElementById("yellowFigure");
 
+if (yellowFigureElement) {
+    yellowFigureElement.style.backgroundColor = "yellow";
+}
 
 /* opgave 2.1
 Du skal oprette følgende HTML elementer i Elementet med id opgaveTwo.
@@ -28,7 +49,9 @@ Du skal oprette følgende HTML elementer i Elementet med id opgaveTwo.
 
 
 // din kode her
-
+{/* <div id="opgaveTwo"></div>
+<h2>Opgave 2.1 løsning</h2>
+<p>Jeg har løst opgaven</p> */}
 
 // opgave 3 liveHTML lists
 /* opgave 3.1
@@ -36,7 +59,9 @@ Du skal finde alle elementer med klassen purpleFigures og console logge resultat
 */
 
 // din kode her
+var purpleFiguresElements = document.getElementsByClassName("purpleFigures");
 
+console.log(purpleFiguresElements);
 
 /* opgave 3.2
 Du skal finde alle elementer med klassen purpleFigures og bruge array.from() til at konvertere listen
@@ -45,8 +70,11 @@ array.from beskrivelse HER: https://developer.mozilla.org/en-US/docs/Web/JavaScr
 */
 
 // din kode her
-
-
+var purpleFiguresElements = document.getElementsByClassName("purpleFigures");
+var purpleFiguresArray = Array.from(purpleFiguresElements);
+purpleFiguresArray.map(function(element) {
+    element.style.backgroundColor = "red";
+});
 /* opgave 3.3
 Brug din array til at ændre h3 elementets, inden i purpleFigures, tekst til RED. du kan bruge
 myElement.children[0].innerHTML til at ændre 1. child elements inner html.
@@ -54,7 +82,18 @@ myElement.children[0].innerHTML til at ændre 1. child elements inner html.
 
 
 // din kode her
+var purpleFiguresElements = document.getElementsByClassName("purpleFigures");
 
+var purpleFiguresArray = Array.from(purpleFiguresElements);
+purpleFiguresArray.map(function(element) {
+    element.style.backgroundColor = "red";
+
+    //h3-elementet
+    var h3Element = element.children[0];
+    if (h3Element.tagName === "H3") {
+        h3Element.innerHTML = "RED";
+    }
+});
 
 
 /* opgave 4
@@ -71,7 +110,32 @@ const myData = {
 
 
 // din kode her
+ var opgaveFourContainer = document.getElementById("tiger");
+
+var titleElement = document.createElement("h2");
+titleElement.innerHTML = myData.title;
+opgaveFourContainer.appendChild(titleElement);
 
 
+var contentElement = document.createElement("p");
+contentElement.innerHTML = myData.content;
+opgaveFourContainer.appendChild(domElement);
+
+
+var linkElement = document.createElement("a");
+linkElement.href = myData.link.url;
+linkElement.innerHTML = myData.link.text;
+opgaveFourContainer.appendChild(linkElement);
+
+
+var headerElement = document.createElement("h3");
+headerElement.innerHTML = "hard"; 
+opgaveFourContainer.appendChild(headerElement);
+
+
+var indexLinkElement = document.createElement("a");
+indexLinkElement.href = "index.html";
+indexLinkElement.innerHTML = "Go to Index";
+opgaveFourContainer.appendChild(indexLinkElement);
 
 
